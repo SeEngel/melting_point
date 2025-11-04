@@ -1,0 +1,29 @@
+{
+    // Use version 0.2.0 for VS Code debug configurations
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // Debug the currently open file using the project's .venv
+            "name": "Python: Current File (use .venv)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${workspaceFolder}",
+
+            // Use integrated terminal so the venv activation and environment behave as expected
+            "console": "integratedTerminal",
+
+            // Point to the .venv python executable.
+            // On Windows the path is typically .venv/Scripts/python.exe
+            // If you use Linux/macOS change to .venv/bin/python
+            "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+
+            // Recommended debug options
+            "justMyCode": true,
+            "stopOnEntry": false,
+
+            // Load environment variables from .env if present
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
