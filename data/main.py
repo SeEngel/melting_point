@@ -1,7 +1,7 @@
 import yaml, os
 import polars as pl
 from pathlib import Path
-
+from ydata_profiling import ProfileReport
 
 
 
@@ -20,5 +20,7 @@ if __name__ == "__main__":
     # present statistics of train data config["data"]["input_train_data_path"] using polars
     train_data_path = Path(__file__).parents[1] / config["data"]["root_data_path"] / config["data"]["input_train_data_path"]
     df = pl.read_csv(train_data_path)
-    print(df.describe())
-    print(df.head())
+
+    # ydata_profiling expects a pandas DataFrame; convert from polars
+    profile = ProfileReport(df.to_pandas(), title="Data Report Melting Point", explorative=True)
+    profile.to_file("report.html")

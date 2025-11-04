@@ -7,5 +7,8 @@ readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
     "polars>=0.18.0",
+    "pyarrow>=21.0.0",
     "pyyaml>=6.0.3",
+    "setuptools>=80.9.0",
+    "ydata-profiling>=4.17.0",
 ]
